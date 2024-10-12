@@ -1,0 +1,140 @@
+1. Create a 3x3 NumPy array with random integers between 1 and 100. Then, interchange its rows and columns.
+
+import numpy as np
+
+array = np.random.randint(1, 101, size=(3, 3))
+
+interchanged_array = array.T
+
+print("Original array:\n", array)
+print("Interchanged array:\n", interchanged_array)
+
+2. Generate a 1D NumPy array with 10 elements. Reshape it into a 2x5 array, then into a 5x2 array. 
+
+import numpy as np
+
+array_1d = np.arange(10)
+
+array_2x5 = array_1d.reshape(2, 5)
+
+array_5x2 = array_2x5.reshape(5, 2)
+
+print("Original 1D array:", array_1d)
+print("Reshaped into 2x5 array:\n", array_2x5)
+print("Reshaped into 5x2 array:\n", array_5x2)
+
+3. Create a 4x4 NumPy array with random float values. Add a border of zeros around it, resulting in a 6x6 array.
+
+import numpy as np
+
+array_4x4 = np.random.rand(4, 4)
+
+array_with_border = np.pad(array_4x4, pad_width=1, mode='constant', constant_values=0)
+
+print("Original 4x4 array:\n", array_4x4)
+print("Array with border of zeros:\n", array_with_border)
+
+4. Using NumPy, create an array of integers from 10 to 60 with a step of 5
+
+import numpy as np
+
+array = np.arange(10, 65, 5)
+
+print("Array:", array)
+
+5. Create a NumPy array of strings ['python', 'numpy', 'pandas']. Apply different case transformations
+(uppercase, lowercase, title case, etc.) to each element.
+
+import numpy as np
+
+# Create a NumPy array of strings
+strings = np.array(['python', 'numpy', 'pandas'])
+
+uppercased = np.char.upper(strings)
+lowercased = np.char.lower(strings)
+titlecased = np.char.title(strings)
+
+print("Original strings:", strings)
+print("Uppercased strings:", uppercased)
+print("Lowercased strings:", lowercased)
+print("Titlecased strings:", titlecased)
+
+6. Generate a NumPy array of words. Insert a space between each character of every word in the array.
+
+import numpy as np
+
+words = np.array(['python', 'numpy', 'pandas'])
+
+spaced_words = np.array([np.char.join(' ', word) for word in words])
+
+print("Original words:", words)
+print("Words with spaces:", spaced_words)
+
+7. Create two 2D NumPy arrays and perform element-wise addition, subtraction, multiplication, and division
+
+import numpy as np
+
+array1 = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+array2 = np.array([[9, 8, 7], [6, 5, 4], [3, 2, 1]])
+
+addition = np.add(array1, array2)
+
+subtraction = np.subtract(array1, array2)
+
+multiplication = np.multiply(array1, array2)
+
+division = np.divide(array1, array2)
+
+print("Array 1:\n", array1)
+print("Array 2:\n", array2)
+print("Element-wise addition:\n", addition)
+print("Element-wise subtraction:\n", subtraction)
+print("Element-wise multiplication:\n", multiplication)
+print("Element-wise division:\n", division)
+
+8. Use NumPy to create a 5x5 identity matrix, then extract its diagonal elements.
+
+import numpy as np
+
+identity_matrix = np.eye(5)
+
+diagonal_elements = np.diag(identity_matrix)
+
+print("5x5 Identity Matrix:\n", identity_matrix)
+print("Diagonal Elements:", diagonal_elements)
+
+9. Generate a NumPy array of 100 random integers between 0 and 1000. Find and display all prime numbers in
+this array
+
+import numpy as np
+
+def is_prime(n):
+    if n <= 1:
+        return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+random_integers = np.random.randint(0, 1001, size=100)
+
+prime_numbers = [num for num in random_integers if is_prime(num)]
+
+print("Array of random integers:\n", random_integers)
+print("Prime numbers in the array:\n", prime_numbers)
+
+10. Create a NumPy array representing daily temperatures for a month. Calculate and display the weekly
+averages.
+
+import numpy as np
+
+daily_temperatures = np.random.randint(15, 35, size=30)  # Example temperatures between 15°C and 35°C
+
+weeks = daily_temperatures.reshape(4, 7)
+
+weekly_averages = np.mean(weeks, axis=1)
+
+print("Daily temperatures for the month:\n", daily_temperatures)
+print("Weekly averages:\n", weekly_averages)
+
+
